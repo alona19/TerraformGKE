@@ -92,7 +92,7 @@ module "preview_deployment_frontend" {
   source = "./modules/app/deployments"
   
   name = frontedapp
-  namesapce = preview
+  namespace = preview
   myapp = frontendapp
   environment = preview
   replica = 1
@@ -104,7 +104,7 @@ module "preview_deployment_backend1" {
   source = "./modules/app/deployments"
  
   name = backend1app
-  namesapce = preview
+  namespace = preview
   myapp = backend1app
   environment = preview
   replica = 1
@@ -116,7 +116,7 @@ module "preview_deployment_backend2" {
   source = "./modules/app/deployments"
   
   name = backend2app
-  namesapce = preview
+  namespace = preview
   myapp = backend2app
   environment = preview
   replica = 1
@@ -129,7 +129,7 @@ module "staging_fronted_deployments" {
   source = "./modules/app/deployments"
   
   name = frontedapp
-  namesapce = staging
+  namespace = staging
   myapp = frontendapp
   environment = staging
   replica = 3
@@ -141,7 +141,7 @@ module "staging_backend1_deployments" {
   source = "./modules/app/deployments"
   
   name = backend1app
-  namesapce = staging
+  namespace = staging
   myapp = backend1app
   environment = staging
   replica = 3
@@ -153,7 +153,7 @@ module "staging_backend2_deployments" {
   source = "./modules/app/deployments"
   
   name = backend2app
-  namesapce = staging
+  namespace = staging
   myapp = backend2app
   environment = staging
   replica = 3
@@ -165,7 +165,7 @@ module "production_frontend_deployments" {
   source = "./modules/app/deployments"
   
   name = frontedapp
-  namesapce = production
+  namespace = production
   myapp = frontendapp
   environment = production
   replica = 3
@@ -177,7 +177,7 @@ module "production_backend1_deployments" {
   source = "./modules/app/deployments"
   
   name = backend1app
-  namesapce = production
+  namespace = production
   myapp = backend1app
   environment = production
   replica = 3
@@ -189,7 +189,7 @@ module "production_backend2_deployments" {
   source = "./modules/app/deployments"
   
   name = backend2app
-  namesapce = production
+  namespace = production
   myapp = backend2app
   environment = production
   replica = 3
