@@ -91,10 +91,10 @@ resource "kubernetes_namespace" "production" {
 module "preview_deployment_frontend" {
   source = "./modules/app/deployments"
   
-  name = frontedapp
-  namespace = preview
-  myapp = frontendapp
-  environment = preview
+  name = "frontedapp"
+  namespace = "preview"
+  myapp = "frontendapp"
+  environment = "preview"
   replica = 1
   image = "alonageorge25219/frontend:1.0.1"
   port = 80
@@ -103,10 +103,10 @@ module "preview_deployment_frontend" {
 module "preview_deployment_backend1" {
   source = "./modules/app/deployments"
  
-  name = backend1app
-  namespace = preview
-  myapp = backend1app
-  environment = preview
+  name = "backend1app"
+  namespace = "preview"
+  myapp = "backend1app"
+  environment = "preview"
   replica = 1
   image = "alonageorge25219/demobackend1:latest"
   port = 8080
@@ -115,10 +115,10 @@ module "preview_deployment_backend1" {
 module "preview_deployment_backend2" {
   source = "./modules/app/deployments"
   
-  name = backend2app
-  namespace = preview
-  myapp = backend2app
-  environment = preview
+  name = "backend2app"
+  namespace = "preview"
+  myapp = "backend2app"
+  environment = "preview"
   replica = 1
   image = "alonageorge25219/demobackend2:latest"
   port = 5000
@@ -128,10 +128,10 @@ module "preview_deployment_backend2" {
 module "staging_fronted_deployments" {
   source = "./modules/app/deployments"
   
-  name = frontedapp
-  namespace = staging
-  myapp = frontendapp
-  environment = staging
+  name = "frontedapp"
+  namespace = "staging"
+  myapp = "frontendapp"
+  environment = "staging"
   replica = 3
   image = "alonageorge25219/frontend:1.0.1"
   port = 80
@@ -140,10 +140,10 @@ module "staging_fronted_deployments" {
 module "staging_backend1_deployments" {
   source = "./modules/app/deployments"
   
-  name = backend1app
-  namespace = staging
-  myapp = backend1app
-  environment = staging
+  name = "backend1app"
+  namespace = "staging"
+  myapp = "backend1app"
+  environment = "staging"
   replica = 3
   image = "alonageorge25219/demobackend1:latest"
   port = 8080
@@ -152,10 +152,10 @@ module "staging_backend1_deployments" {
 module "staging_backend2_deployments" {
   source = "./modules/app/deployments"
   
-  name = backend2app
-  namespace = staging
-  myapp = backend2app
-  environment = staging
+  name = "backend2app"
+  namespace = "staging"
+  myapp = "backend2app"
+  environment = "staging"
   replica = 3
   image = "alonageorge25219/demobackend2:latest"
   port = 5000
@@ -164,10 +164,10 @@ module "staging_backend2_deployments" {
 module "production_frontend_deployments" {
   source = "./modules/app/deployments"
   
-  name = frontedapp
-  namespace = production
-  myapp = frontendapp
-  environment = production
+  name = "frontedapp"
+  namespace = "production"
+  myapp = "frontendapp"
+  environment = "production"
   replica = 3
   image = "alonageorge25219/frontend:1.0.1"
   port = 80
@@ -176,10 +176,10 @@ module "production_frontend_deployments" {
 module "production_backend1_deployments" {
   source = "./modules/app/deployments"
   
-  name = backend1app
-  namespace = production
-  myapp = backend1app
-  environment = production
+  name = "backend1app"
+  namespace = "production"
+  myapp = "backend1app"
+  environment = "production"
   replica = 3
   image = "alonageorge25219/demobackend1:latest"
   port = 8080
@@ -188,10 +188,10 @@ module "production_backend1_deployments" {
 module "production_backend2_deployments" {
   source = "./modules/app/deployments"
   
-  name = backend2app
-  namespace = production
-  myapp = backend2app
-  environment = production
+  name = "backend2app"
+  namespace = "production"
+  myapp = "backend2app"
+  environment = "production"
   replica = 3
   image = "alonageorge25219/demobackend2:latest"
   port = 5000
@@ -200,10 +200,10 @@ module "production_backend2_deployments" {
 module "preview_frontend_service" {
   source = "./modules/app/service"
   
-  namespace = preview
-  app = frontendser
-  myapp = frontendapp
-  lb = LoadBalancer
+  namespace = "preview"
+  app = "frontendser"
+  myapp = "frontendapp"
+  lb = "LoadBalancer"
   port = 80
   targetPort = 80
   # Add additional parameters as needed
@@ -211,19 +211,19 @@ module "preview_frontend_service" {
 module "preview_backend1_service" {
   source = "./modules/app/service"
   
-  namespace = preview
-  app = backend1ser
-  myapp = backend1app
-  lb = LoadBalancer
+  namespace = "preview"
+  app = "backend1ser"
+  myapp = "backend1app"
+  lb = "LoadBalancer"
   port = 80
   targetPort = 8080
 }
 module "preview_backend2_service" {
   source = "./modules/app/service"
-  lb = ClusterIP
-  namespace = preview
-  app = backend2ser
-  myapp = backend2app
+  lb = "ClusterIP"
+  namespace = "preview"
+  app = "backend2ser"
+  myapp = "backend2app"
   port = 80
   targetPort = 5000
   # Add additional parameters as needed
@@ -232,10 +232,10 @@ module "preview_backend2_service" {
 module "staging_frontend_service" {
   source = "./modules/app/service"
   
-  namespace = staging
-  app = frontendser
-  myapp = frontendapp
-  lb = LoadBalancer
+  namespace = "staging"
+  app = "frontendser"
+  myapp = "frontendapp"
+  lb = "LoadBalancer"
   port = 80
   targetPort = 80
   # Add additional parameters as needed
@@ -243,10 +243,10 @@ module "staging_frontend_service" {
 module "staging_backend1_service" {
   source = "./modules/app/service"
   
-  namespace = staging
-  app = backend1ser
-  myapp = backend1app
-  lb = LoadBalancer
+  namespace = "staging"
+  app = "backend1ser"
+  myapp = "backend1app"
+  lb = "LoadBalancer"
   port = 80
   targetPort = 8080
   # Add additional parameters as needed
@@ -254,10 +254,10 @@ module "staging_backend1_service" {
 module "staging_backend2_service" {
   source = "./modules/app/service"
   
-  namespace = staging
-  app = backend2ser
-  myapp = backend2app
-  lb = ClusterIP
+  namespace = "staging"
+  app = "backend2ser"
+  myapp = "backend2app"
+  lb = "ClusterIP"
   port = 80
   targetPort = 5000
   # Add additional parameters as needed
@@ -266,10 +266,10 @@ module "staging_backend2_service" {
 module "production_frontend_service" {
   source = "./modules/app/service"
   
-  namespace = production
-  app = frontendser
-  myapp = frontendapp
-  lb = LoadBalancer
+  namespace = "production"
+  app = "frontendser"
+  myapp = "frontendapp"
+  lb = "LoadBalancer"
   port = 80
   targetPort = 80
   # Add additional parameters as needed
@@ -278,10 +278,10 @@ module "production_frontend_service" {
 module "production_backend1_service" {
   source = "./modules/app/service"
   
-  namespace = production
-  app = backend1ser
-  myapp = backend1app
-  lb = LoadBalancer
+  namespace = "production"
+  app = "backend1ser"
+  myapp = "backend1app"
+  lb = "LoadBalancer"
   port = 80
   targetPort = 8080
   # Add additional parameters as needed
@@ -289,10 +289,10 @@ module "production_backend1_service" {
 module "production_backend2_service" {
   source = "./modules/app/service"
   
-  namespace = production
-  app = backend2ser
-  myapp = backend2app
-  lb = ClusterIP
+  namespace = "production"
+  app = "backend2ser"
+  myapp = "backend2app"
+  lb = "ClusterIP"
   port = 80
   targetPort = 5000
   # Add additional parameters as needed
