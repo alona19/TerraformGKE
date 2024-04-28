@@ -1,3 +1,4 @@
+
 variable "namespace" {
   description = "The namespace of the service"
   type = string
@@ -9,11 +10,16 @@ variable "app" {
   type = string
   default = "myapp"
 }
+variable "myapp" {
+  description = "The name of the application"
+  type = string
+  default = "myapp"
+}
 
 variable "lb" {
   description = "The type of load balancer"
   type = string
-  default = "LoadBalancer"
+  
 }
 
 variable "port" {
