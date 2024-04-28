@@ -220,7 +220,7 @@ module "preview_backend1_service" {
 }
 module "preview_backend2_service" {
   source = "./modules/app/service"
- 
+  lb = ClusterIP
   namespace = preview
   app = backend2ser
   myapp = backend2app
@@ -257,7 +257,7 @@ module "staging_backend2_service" {
   namespace = staging
   app = backend2ser
   myapp = backend2app
-  lb = LoadBalancer
+  lb = ClusterIP
   port = 80
   targetPort = 5000
   # Add additional parameters as needed
@@ -292,7 +292,7 @@ module "production_backend2_service" {
   namespace = production
   app = backend2ser
   myapp = backend2app
-  lb = LoadBalancer
+  lb = ClusterIP
   port = 80
   targetPort = 5000
   # Add additional parameters as needed
