@@ -10,6 +10,7 @@ resource "kubernetes_service" "app_service" {
       app = var.myapp
     }
 
+
     port {
       port        = var.port
       target_port = var.targetPort
