@@ -96,7 +96,7 @@ module "preview_deployment_frontend" {
   myapp = frontendapp
   environment = preview
   replica = 1
-  image = alonageorge25219/frontend:1.0.1
+  image = "alonageorge25219/frontend:1.0.1"
   port = 80
   # Add additional parameters as needed
 }
@@ -108,7 +108,7 @@ module "preview_deployment_backend1" {
   myapp = backend1app
   environment = preview
   replica = 1
-  image = alonageorge25219/demobackend1:latest
+  image = "alonageorge25219/demobackend1:latest"
   port = 8080
   # Add additional parameters as needed
 }
@@ -120,7 +120,7 @@ module "preview_deployment_backend2" {
   myapp = backend2app
   environment = preview
   replica = 1
-  image = alonageorge25219/demobackend2:latest
+  image = "alonageorge25219/demobackend2:latest"
   port = 5000
   # Add additional parameters as needed
 }
@@ -133,7 +133,7 @@ module "staging_fronted_deployments" {
   myapp = frontendapp
   environment = staging
   replica = 3
-  image = alonageorge25219/frontend:1.0.1
+  image = "alonageorge25219/frontend:1.0.1"
   port = 80
   # Add additional parameters as needed
 }
@@ -145,7 +145,7 @@ module "staging_backend1_deployments" {
   myapp = backend1app
   environment = staging
   replica = 3
-  image = alonageorge25219/demobackend1:latest
+  image = "alonageorge25219/demobackend1:latest"
   port = 8080
   # Add additional parameters as needed
 }
@@ -157,7 +157,7 @@ module "staging_backend2_deployments" {
   myapp = backend2app
   environment = staging
   replica = 3
-  image = alonageorge25219/demobackend2:latest
+  image = "alonageorge25219/demobackend2:latest"
   port = 5000
   # Add additional parameters as needed
 }
@@ -169,7 +169,7 @@ module "production_frontend_deployments" {
   myapp = frontendapp
   environment = production
   replica = 3
-  image = alonageorge25219/frontend:1.0.1
+  image = "alonageorge25219/frontend:1.0.1"
   port = 80
   # Add additional parameters as needed
 }
@@ -181,7 +181,7 @@ module "production_backend1_deployments" {
   myapp = backend1app
   environment = production
   replica = 3
-  image = alonageorge25219/demobackend1:latest
+  image = "alonageorge25219/demobackend1:latest"
   port = 8080
   # Add additional parameters as needed
 }
@@ -193,7 +193,7 @@ module "production_backend2_deployments" {
   myapp = backend2app
   environment = production
   replica = 3
-  image = alonageorge25219/demobackend2:latest
+  image = "alonageorge25219/demobackend2:latest"
   port = 5000
   # Add additional parameters as needed
 }
