@@ -57,7 +57,7 @@ resource "kubernetes_namespace" "preview" {
       mylabel = "preview"
     }
 
-    name = "terraform-preview-namespace"
+    name = "preview"
   }
 }
 resource "kubernetes_namespace" "staging" {
@@ -70,7 +70,7 @@ resource "kubernetes_namespace" "staging" {
       mylabel = "staging"
     }
 
-    name = "terraform-staging-namespace"
+    name = "staging"
   }
 }
 
@@ -84,7 +84,7 @@ resource "kubernetes_namespace" "production" {
       mylabel = "production"
     }
 
-    name = "terraform-production-namespace"
+    name = "production"
   }
 }
 
