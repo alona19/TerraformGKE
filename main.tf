@@ -88,39 +88,212 @@ resource "kubernetes_namespace" "production" {
   }
 }
 
-module "preview_deployments" {
+module "preview_deployment_frontend" {
   source = "./modules/app/deployments"
   namespace = kubernetes_namespace.preview.metadata[0].name
+  name = frontedapp
+  namesapce = preview
+  myapp = frontendapp
+  environment = preview
+  replica = 1
+  image = alonageorge25219/frontend:1.0.1
+  port = 80
+  # Add additional parameters as needed
+}
+module "preview_deployment_backend1" {
+  source = "./modules/app/deployments"
+  namespace = kubernetes_namespace.preview.metadata[0].name
+  name = backend1app
+  namesapce = preview
+  myapp = backend1app
+  environment = preview
+  replica = 1
+  image = alonageorge25219/demobackend1:latest
+  port = 8080
+  # Add additional parameters as needed
+}
+module "preview_deployment_backend2" {
+  source = "./modules/app/deployments"
+  namespace = kubernetes_namespace.preview.metadata[0].name
+  name = backend2app
+  namesapce = preview
+  myapp = backend2app
+  environment = preview
+  replica = 1
+  image = alonageorge25219/demobackend2:latest
+  port = 5000
   # Add additional parameters as needed
 }
 
-module "staging_deployments" {
+module "staging_fronted_deployments" {
   source = "./modules/app/deployments"
   namespace = kubernetes_namespace.staging.metadata[0].name
+  name = frontedapp
+  namesapce = staging
+  myapp = frontendapp
+  environment = staging
+  replica = 3
+  image = alonageorge25219/frontend:1.0.1
+  port = 80
   # Add additional parameters as needed
 }
-
-module "production_deployments" {
+module "staging_backend1_deployments" {
+  source = "./modules/app/deployments"
+  namespace = kubernetes_namespace.staging.metadata[0].name
+  name = backend1app
+  namesapce = staging
+  myapp = backend1app
+  environment = staging
+  replica = 3
+  image = alonageorge25219/demobackend1:latest
+  port = 8080
+  # Add additional parameters as needed
+}
+module "staging_backend2_deployments" {
+  source = "./modules/app/deployments"
+  namespace = kubernetes_namespace.staging.metadata[0].name
+  name = backend2app
+  namesapce = staging
+  myapp = backend2app
+  environment = staging
+  replica = 3
+  image = alonageorge25219/demobackend2:latest
+  port = 5000
+  # Add additional parameters as needed
+}
+module "production_frontend_deployments" {
   source = "./modules/app/deployments"
   namespace = kubernetes_namespace.production.metadata[0].name
+  name = frontedapp
+  namesapce = production
+  myapp = frontendapp
+  environment = production
+  replica = 3
+  image = alonageorge25219/frontend:1.0.1
+  port = 80
   # Add additional parameters as needed
 }
-
-module "preview_service" {
+module "production_backend1_deployments" {
+  source = "./modules/app/deployments"
+  namespace = kubernetes_namespace.production.metadata[0].name
+  name = backend1app
+  namesapce = production
+  myapp = backend1app
+  environment = production
+  replica = 3
+  image = alonageorge25219/demobackend1:latest
+  port = 8080
+  # Add additional parameters as needed
+}
+module "production_backend2_deployments" {
+  source = "./modules/app/deployments"
+  namespace = kubernetes_namespace.production.metadata[0].name
+  name = backend2app
+  namesapce = production
+  myapp = backend2app
+  environment = production
+  replica = 3
+  image = alonageorge25219/demobackend2:latest
+  port = 5000
+  # Add additional parameters as needed
+}
+module "preview_frontend_service" {
   source = "./modules/app/service"
   namespace = kubernetes_namespace.preview.metadata[0].name
+  namespace = preview
+  app = frontendser
+  myapp = frontendapp
+  lb = LoadBalancer
+  port = 80
+  targetPort = 80
+  # Add additional parameters as needed
+}
+module "preview_backend1_service" {
+  source = "./modules/app/service"
+  namespace = kubernetes_namespace.preview.metadata[0].name
+  namespace = preview
+  app = backend1ser
+  myapp = backend1app
+  lb = LoadBalancer
+  port = 80
+  targetPort = 8080
+}
+module "preview_backend2_service" {
+  source = "./modules/app/service"
+  namespace = kubernetes_namespace.preview.metadata[0].name
+  namespace = preview
+  app = backend2ser
+  myapp = backend2app
+  port = 80
+  targetPort = 5000
   # Add additional parameters as needed
 }
 
-module "staging_service" {
+module "staging_frontend_service" {
   source = "./modules/app/service"
   namespace = kubernetes_namespace.staging.metadata[0].name
+  namespace = staging
+  app = frontendser
+  myapp = frontendapp
+  lb = LoadBalancer
+  port = 80
+  targetPort = 80
+  # Add additional parameters as needed
+}
+module "staging_backend1_service" {
+  source = "./modules/app/service"
+  namespace = kubernetes_namespace.staging.metadata[0].name
+  namespace = staging
+  app = backend1ser
+  myapp = backend1app
+  lb = LoadBalancer
+  port = 80
+  targetPort = 8080
+  # Add additional parameters as needed
+}
+module "staging_backend2_service" {
+  source = "./modules/app/service"
+  namespace = kubernetes_namespace.staging.metadata[0].name
+  namespace = staging
+  app = backend2ser
+  myapp = backend2app
+  lb = LoadBalancer
+  port = 80
+  targetPort = 5000
   # Add additional parameters as needed
 }
 
-module "production_service" {
+module "production_frontend_service" {
   source = "./modules/app/service"
   namespace = kubernetes_namespace.production.metadata[0].name
+  namespace = production
+  app = frontendser
+  myapp = frontendapp
+  lb = LoadBalancer
+  port = 80
+  targetPort = 80
   # Add additional parameters as needed
 }
 
+module "production_backend1_service" {
+  source = "./modules/app/service"
+  namespace = kubernetes_namespace.production.metadata[0].name
+  namespace = production
+  app = backend1ser
+  myapp = backend1app
+  lb = LoadBalancer
+  port = 80
+  targetPort = 8080
+  # Add additional parameters as needed
+}
+module "production_backend2_service" {
+  source = "./modules/app/service"
+  namespace = kubernetes_namespace.production.metadata[0].name
+  namespace = production
+  app = backend2ser
+  myapp = backend2app
+  lb = LoadBalancer
+  port = 80
+  targetPort = 5000
+  # Add additional parameters as needed
+}
