@@ -90,7 +90,7 @@ resource "kubernetes_namespace" "production" {
 
 module "preview_deployment_frontend" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.preview.metadata[0].name
+  
   name = frontedapp
   namesapce = preview
   myapp = frontendapp
@@ -102,7 +102,7 @@ module "preview_deployment_frontend" {
 }
 module "preview_deployment_backend1" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.preview.metadata[0].name
+ 
   name = backend1app
   namesapce = preview
   myapp = backend1app
@@ -114,7 +114,7 @@ module "preview_deployment_backend1" {
 }
 module "preview_deployment_backend2" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.preview.metadata[0].name
+  
   name = backend2app
   namesapce = preview
   myapp = backend2app
@@ -127,7 +127,7 @@ module "preview_deployment_backend2" {
 
 module "staging_fronted_deployments" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.staging.metadata[0].name
+  
   name = frontedapp
   namesapce = staging
   myapp = frontendapp
@@ -139,7 +139,7 @@ module "staging_fronted_deployments" {
 }
 module "staging_backend1_deployments" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.staging.metadata[0].name
+  
   name = backend1app
   namesapce = staging
   myapp = backend1app
@@ -151,7 +151,7 @@ module "staging_backend1_deployments" {
 }
 module "staging_backend2_deployments" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.staging.metadata[0].name
+  
   name = backend2app
   namesapce = staging
   myapp = backend2app
@@ -163,7 +163,7 @@ module "staging_backend2_deployments" {
 }
 module "production_frontend_deployments" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.production.metadata[0].name
+  
   name = frontedapp
   namesapce = production
   myapp = frontendapp
@@ -175,7 +175,7 @@ module "production_frontend_deployments" {
 }
 module "production_backend1_deployments" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.production.metadata[0].name
+  
   name = backend1app
   namesapce = production
   myapp = backend1app
@@ -187,7 +187,7 @@ module "production_backend1_deployments" {
 }
 module "production_backend2_deployments" {
   source = "./modules/app/deployments"
-  namespace = kubernetes_namespace.production.metadata[0].name
+  
   name = backend2app
   namesapce = production
   myapp = backend2app
@@ -199,7 +199,7 @@ module "production_backend2_deployments" {
 }
 module "preview_frontend_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.preview.metadata[0].name
+  
   namespace = preview
   app = frontendser
   myapp = frontendapp
@@ -210,7 +210,7 @@ module "preview_frontend_service" {
 }
 module "preview_backend1_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.preview.metadata[0].name
+  
   namespace = preview
   app = backend1ser
   myapp = backend1app
@@ -220,7 +220,7 @@ module "preview_backend1_service" {
 }
 module "preview_backend2_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.preview.metadata[0].name
+ 
   namespace = preview
   app = backend2ser
   myapp = backend2app
@@ -231,7 +231,7 @@ module "preview_backend2_service" {
 
 module "staging_frontend_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.staging.metadata[0].name
+  
   namespace = staging
   app = frontendser
   myapp = frontendapp
@@ -242,7 +242,7 @@ module "staging_frontend_service" {
 }
 module "staging_backend1_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.staging.metadata[0].name
+  
   namespace = staging
   app = backend1ser
   myapp = backend1app
@@ -253,7 +253,7 @@ module "staging_backend1_service" {
 }
 module "staging_backend2_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.staging.metadata[0].name
+  
   namespace = staging
   app = backend2ser
   myapp = backend2app
@@ -265,7 +265,7 @@ module "staging_backend2_service" {
 
 module "production_frontend_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.production.metadata[0].name
+  
   namespace = production
   app = frontendser
   myapp = frontendapp
@@ -277,7 +277,7 @@ module "production_frontend_service" {
 
 module "production_backend1_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.production.metadata[0].name
+  
   namespace = production
   app = backend1ser
   myapp = backend1app
@@ -288,7 +288,7 @@ module "production_backend1_service" {
 }
 module "production_backend2_service" {
   source = "./modules/app/service"
-  namespace = kubernetes_namespace.production.metadata[0].name
+  
   namespace = production
   app = backend2ser
   myapp = backend2app
