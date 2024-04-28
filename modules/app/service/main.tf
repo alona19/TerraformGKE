@@ -7,7 +7,7 @@ resource "kubernetes_service" "app_service" {
   spec {
     type = var.lb
     selector = {
-      app = var.app
+      app = var.myapp
     }
 
     port {
@@ -16,7 +16,4 @@ resource "kubernetes_service" "app_service" {
     }
   }
 
-  selector = {
-    app = var.myapp
-  }
 }
